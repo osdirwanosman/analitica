@@ -37,7 +37,7 @@ html, body {
   background-color: #f9f9f9;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   align-content: start;
   overflow-y: auto;
@@ -128,7 +128,7 @@ html, body {
 }
 
 #score{
-  position: static;
+  position: absolute;
   top: 50px;
   left: 95%;
   transform: translateX(-50%);
@@ -165,7 +165,7 @@ html, body {
 
 
 #timer {
-  position: static;
+  position: absolute;
   top: 10px;
   left: 95%;
   transform: translateX(-50%);
@@ -351,4 +351,77 @@ html, body {
   font-size: 16px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 🔧 Tambahan media query untuk tampilan mobile */
+@media screen and (max-width: 768px) {
+  #quiz-box {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .quiz-content {
+    order: 2;
+    flex: unset;
+    padding: 10px;
+  }
+
+  .top-bar {
+    order: 1;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #participant-info {
+    order: 2;
+  }
+
+  .status-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  #score, #timer {
+    width: 45%;
+    margin: 0;
+    position: static;
+    transform: none;
+    text-align: center;
+  }
+
+  #navigation {
+    order: 3;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+    border-left: none;
+    border-top: 1px solid #ccc;
+    flex: unset;
+  }
+
+  #navigation .nav-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  #navigation .nav-controls button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  #question img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #options label {
+    font-size: 16px;
+    padding: 10px;
+  }
 }
